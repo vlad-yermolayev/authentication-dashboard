@@ -1,0 +1,98 @@
+.auth .container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth__form {
+    max-width: 500px;
+    width: 100%;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.auth__message {
+    display: none;
+    color: #ff0000;
+}
+
+.dashboard {
+    display: none;
+}
+
+.dashboard .container {
+    min-height: 100vh;
+    padding:  40px 15px;
+}
+
+.dashboard__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.dashboard ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.users {
+    display: grid;
+    gap: 10px;
+}
+
+.users__item .card-header {
+    display: flex;
+    justify-content: center;
+}
+
+.users__item .card-header .fa-circle-user {
+    font-size: 40px;
+}
+
+.users__item .card-text {
+    display: flex;
+    align-items: center;
+    color: #504e4e;
+    margin-bottom: 30px;
+}
+
+.users__item .card-text .fa-building {
+    margin-right: 5px;
+}
+
+.users__contacts {
+    display: flex;
+    justify-content: center;
+}
+
+.users__contacts li:not(:last-child) {
+    margin-right: 10px;
+}
+
+.users__contacts a {
+    min-width: 46px;
+}
+
+@media only screen and (min-width: 630px) {
+    .users {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media only screen and (min-width: 940px) {
+    .users {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (min-width: 1250px) {
+    .users {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
