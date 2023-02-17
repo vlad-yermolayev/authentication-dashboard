@@ -4,8 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const DASHBOARD = document.querySelector('.dashboard');
     const AUTH = document.querySelector('.auth');
     const AUTH_MESSAGE = document.querySelector('.auth__message');
+    const EMAIL_INPUT =  document.getElementById('email');
+    const PASSWORD_INPUT =  document.getElementById('password');
     let auth_data = null;
 
+    if (localStorage.getItem('email') || localStorage.getItem('password')) {
+        EMAIL_INPUT.value = localStorage.getItem('email') ? localStorage.getItem('email') : '';
+        PASSWORD_INPUT.value = localStorage.getItem('password') ? localStorage.getItem('password') : '';
+    }
     function getUsersData(url) {
         fetch(url)
             .then(response => response.json())
@@ -63,13 +69,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const LOGIN = document.querySelector('.auth__btn');
     LOGIN.addEventListener('click', (event) => {
         event.preventDefault();
-        const EMAIL_INPUT =  document.getElementById('email');
-        const PASSWORD_INPUT =  document.getElementById('password');
         auth_data.forEach((authorization) => {
             if (authorization.email !== EMAIL_INPUT.value || authorization.password !== PASSWORD_INPUT.value) {
                 AUTH_MESSAGE.style.display = 'flex';
             }
             else {
+                localStorage.setItem('email', EMAIL_INPUT.value);
+                localStorage.setItem('password', PASSWORD_INPUT.value);
                 AUTH.style.display = 'none';
                 DASHBOARD.style.display = 'flex';
             }
